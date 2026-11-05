@@ -33,7 +33,7 @@ class SessionMenu extends StatelessWidget {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text(
-            'Evento registrado. Cierra y abre la app para que se envíe.',
+            'Evento registrado.',
           ),
         ),
       );

@@ -48,7 +48,7 @@ class MaintenanceOrder {
   });
 
   bool get isFinished =>
-      status == OrderStatus.closed || status == OrderStatus.rejected;
+      status == OrderStatus.closed || status == OrderStatus.rejected || status == OrderStatus.finished;
 
   bool get isOverBudget =>
       estimatedCost != null && estimatedCost! > OrderRules.repairBudget;

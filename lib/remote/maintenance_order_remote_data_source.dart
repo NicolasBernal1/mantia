@@ -105,7 +105,7 @@ class MaintenanceOrderRemoteDataSource {
         );
       }
 
-      final assetRef = _assets.doc(orderData['assetId'] as String);
+      final assetRef = _assets.doc(orderData['asset_id'] as String);
       final assetSnapshot = await transaction.get(assetRef);
       if (assetSnapshot.data()?['active_order_id'] != null) {
         throw const AppException(
@@ -116,8 +116,8 @@ class MaintenanceOrderRemoteDataSource {
       transaction.update(orderRef, {
         'status': OrderStatus.authorized,
         'priority': priority,
-        'technicianUid': technician.uid,
-        'technicianName': technician.displayName,
+        'technician_uid': technician.uid,
+        'technician_name': technician.displayName,
         'updated_at': _now(),
       });
       transaction.set(assetRef, {
@@ -156,11 +156,14 @@ class MaintenanceOrderRemoteDataSource {
 
       transaction.update(orderRef, {
         'status': OrderStatus.rejected,
-        'rejectionReason': reason.trim(),
+        'rejection_reason': reason.trim(),
         'updated_at': _now(),
       });
       if (releasesAsset) {
-        transaction.set(assetRef, {'active_order_id': null, 'updated_at': _now()});
+        transaction.set(assetRef, {
+          'active_order_id': null,
+          'updated_at': _now(),
+        });
       }
     });
   }
@@ -181,17 +184,20 @@ class MaintenanceOrderRemoteDataSource {
         );
       }
 
-      final assetRef = _assets.doc(orderData['assetId'] as String);
+      final assetRef = _assets.doc(orderData['asset_id'] as String);
       final assetSnapshot = await transaction.get(assetRef);
       final holdsAsset = assetSnapshot.data()?['active_order_id'] == orderId;
 
       transaction.update(orderRef, {
         'status': OrderStatus.closed,
-        'closeResult': result.trim(),
+        'close_result': result.trim(),
         'updated_at': _now(),
       });
       if (holdsAsset) {
-        transaction.set(assetRef, {'active_order_id': null, 'updated_at': _now()});
+        transaction.set(assetRef, {
+          'active_order_id': null,
+          'updated_at': _now(),
+        });
       }
     });
   }
@@ -217,8 +223,8 @@ class MaintenanceOrderRemoteDataSource {
       }
       transaction.update(orderRef, {
         'status': OrderStatus.diagnosed,
-        'diagnosisCause': cause.trim(),
-        'estimatedCost': cost,
+        'diagnosis_cause': cause.trim(),
+        'estimated_cost': cost,
         'updated_at': _now(),
       });
     });
