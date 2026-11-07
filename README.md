@@ -57,3 +57,7 @@ Antes de ejecutar, tener un ambiente donde ejecutarlo (como android studio).
 * Los cambios de otras cuentas se ven al abrir la bandeja o tocar sincronizar (no hay actualizacion en vivo).
 * El catalogo HTTP no se guarda en el dispositivo.
 * No hay pantalla para administrar usuarios (los roles se manejan desde firestore).
+
+# Evidencia Crashlytics
+
+En `docs\images\crashlytics.png`
