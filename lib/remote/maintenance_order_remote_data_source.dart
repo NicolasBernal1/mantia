@@ -107,7 +107,7 @@ class MaintenanceOrderRemoteDataSource {
 
       final assetRef = _assets.doc(orderData['asset_id'] as String);
       final assetSnapshot = await transaction.get(assetRef);
-      if (assetSnapshot.data()?['active_order_id'] != null) {
+      if (assetSnapshot.data()?['active_order_d'] != null) {
         throw const AppException(
           'El activo ya tiene una orden activa. No se puede autorizar una segunda orden.',
         );
