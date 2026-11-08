@@ -62,6 +62,6 @@ Antes de ejecutar, tener un ambiente donde ejecutarlo (como android studio).
 
 En `docs\images\crashlytics.png`
 
-#QA
+# QA
 
 En `docs\matriz_qa.md`
