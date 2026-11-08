@@ -61,3 +61,7 @@ Antes de ejecutar, tener un ambiente donde ejecutarlo (como android studio).
 # Evidencia Crashlytics
 
 En `docs\images\crashlytics.png`
+
+#QA
+
+En `docs\matriz_qa.md`
