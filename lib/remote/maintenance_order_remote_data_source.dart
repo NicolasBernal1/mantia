@@ -186,7 +186,7 @@ class MaintenanceOrderRemoteDataSource {
 
       final assetRef = _assets.doc(orderData['asset_id'] as String);
       final assetSnapshot = await transaction.get(assetRef);
-      final holdsAsset = assetSnapshot.data()?['active_order_id'] == orderId;
+      final holdsAsset = assetSnapshot.data()?['active_order_d'] == orderId;
 
       transaction.update(orderRef, {
         'status': OrderStatus.closed,
